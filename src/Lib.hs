@@ -93,7 +93,7 @@ this can be further reduced to sum but like no
 -}
 
 fizzBuzz :: IO ()
-fizzBuzz = putStrLn $ intercalate "\n" [fizzBuzzSingle n | n <- [1..100]]
+fizzBuzz = putStrLn $ intercalate "\n" [fizzBuzzSingle n | n <- [1 .. 100]]
 
 fizzBuzzSingle :: Int -> String
 fizzBuzzSingle n
@@ -102,21 +102,20 @@ fizzBuzzSingle n
   | n `mod` 3 == 0 = "Fizz"
   | otherwise = show n
 
-
-
 -- connect a string list so that it overlaps the strings
 -- ["hi", "india", "ares", "resolution"] -> "hindiaresolution"
 connectStrings :: [String] -> String
 connectStrings [] = []
 connectStrings [x] = x
-connectStrings (x : y : []) = ""
-connectStrings _ = "not implemented yet"
+connectStrings [x, y] = connect2Strings x y
+connectStrings (x : xs) = connect2Strings x $ connectStrings xs
 
-connectStrings2 :: String -> String -> String
-connectStrings2 x y = []
+connect2Strings :: String -> String -> String
+connect2Strings = connect2StringsH []
 
-getCommonPart :: String -> String -> String
-getCommonPart [] _ = []
-getCommonPart x y
-  | x `isPrefixOf` y = x
-  | otherwise = getCommonPart (tail x) y
+-- w: the part already cut off from x, x: the first string, y: the second string
+connect2StringsH :: String -> String -> String -> String
+connect2StringsH _ [] _ = []
+connect2StringsH w x y
+  | x `isPrefixOf` y = w ++ y
+  | otherwise = connect2StringsH (w ++ [head x]) (tail x) y
