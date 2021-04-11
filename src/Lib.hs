@@ -107,15 +107,12 @@ fizzBuzzSingle n
 connectStrings :: [String] -> String
 connectStrings [] = []
 connectStrings [x] = x
-connectStrings [x, y] = connect2Strings x y
 connectStrings (x : xs) = connect2Strings x $ connectStrings xs
 
 connect2Strings :: String -> String -> String
-connect2Strings = connect2StringsH []
-
--- w: the part already cut off from x, x: the first string, y: the second string
-connect2StringsH :: String -> String -> String -> String
-connect2StringsH _ [] _ = []
-connect2StringsH w x y
-  | x `isPrefixOf` y = w ++ y
-  | otherwise = connect2StringsH (w ++ [head x]) (tail x) y
+connect2Strings = connect []
+  where
+    connect _ [] _ = []
+    connect w x y
+      | x `isPrefixOf` y = w ++ y
+      | otherwise = connect (w ++ [head x]) (tail x) y
