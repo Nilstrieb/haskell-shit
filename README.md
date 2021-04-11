@@ -1,1 +1,1 @@
-# learning
+this is public because I want haskell to show up in my [profile readme](https://github.com/Nilstrieb)
