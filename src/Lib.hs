@@ -116,3 +116,30 @@ connect2Strings = connect []
     connect w x y
       | x `isPrefixOf` y = w ++ y
       | otherwise = connect (w ++ [head x]) (tail x) y
+
+nthElement :: Int -> [a] -> a
+nthElement 0 (x : _) = x
+nthElement n (_ : xs) = nthElement (n -1) xs
+
+forEach :: (a -> IO ()) -> [a] -> IO ()
+forEach f [x] = f x
+forEach f (x:xs) = do
+  f x
+  forEach f xs
+
+head2 :: [a] -> a
+head2 [x] = x
+head2 (x:_) = x
+
+tail2 :: [a] -> [a]
+tail2 (_:xs) = xs
+
+last2 :: [a] -> a
+last2 [x] = x
+last2 (_:xs) = last2 xs
+
+init2 :: [a] -> [a]
+init2 [] = []
+init2 [_] = []
+init2 (x:xs) = x : init2 xs
+
