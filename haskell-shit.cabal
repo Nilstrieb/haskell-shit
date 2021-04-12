@@ -4,9 +4,9 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: df1cdbe6df1968cdbe0f2eeb90aaa5626aa9ec8155e1f26dabb0f1284d60f823
+-- hash: c994a264f49f6ed01329576726ef68e35b8f62531817508fa4b005c123468452
 
-name:           learning
+name:           haskell-shit
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/Github username here/learning#readme>
 homepage:       https://github.com/Github username here/learning#readme
@@ -29,7 +29,7 @@ library
   exposed-modules:
       Lib
   other-modules:
-      Paths_learning
+      Paths_haskell_shit
   hs-source-dirs:
       src
   build-depends:
@@ -39,24 +39,24 @@ library
 executable learning-exe
   main-is: Main.hs
   other-modules:
-      Paths_learning
+      Paths_haskell_shit
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , learning
+    , haskell-shit
   default-language: Haskell2010
 
 test-suite learning-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_learning
+      Paths_haskell_shit
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
-    , learning
+    , haskell-shit
   default-language: Haskell2010

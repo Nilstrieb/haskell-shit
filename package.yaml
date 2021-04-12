@@ -1,4 +1,4 @@
-name:                learning
+name:                haskell-shit
 version:             0.1.0.0
 github:              "Github username here/learning"
 license:             BSD3
@@ -34,7 +34,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - learning
+    - haskell-shit
 
 tests:
   learning-test:
@@ -45,4 +45,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - learning
+    - haskell-shit
